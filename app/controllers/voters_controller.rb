@@ -37,7 +37,18 @@ end
 
 
   private
-    
+
+def restrict_access_to_user
+  # authenticate_or_request_with_http_token do |token, options|
+  #   @person.token == token
+  # end
+
+  unless @voter.token == params[:token]
+    render nothing: true, status: :unauthorized
+  end
+end
+
+
     def voter_params
       params.require(:voter).permit(:name, :party)
     end
