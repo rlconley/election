@@ -1,4 +1,8 @@
 class VotersController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  before_filter :load_user, only: [:show, :update]
+  before_filter :restrict_access_to_user, only: [:show, :update]
 
   # GET /voters/1
   # GET /voters/1.json

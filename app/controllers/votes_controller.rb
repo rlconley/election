@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
-
+  before_filter :load_user, only: [:create]
+  before_filter :restrict_access_to_user, only: [:create]
 
   # POST /votes
   # POST /votes.json
