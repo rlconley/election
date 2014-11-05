@@ -10,7 +10,7 @@ class VotesController < ApplicationController
     if @vote.save
       render json: @vote, status: :created, location: @vote
     else
-      render json: @vote.errors, status: :unprocessable_entity
+      render json: @vote.errors, status: :bad_request
     end
   end
 

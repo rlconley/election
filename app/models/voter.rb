@@ -1,8 +1,6 @@
 class Voter < ActiveRecord::Base
-  RawBlameHistory
   require 'securerandom'
 
-  class Person < ActiveRecord::Base
     validates :name, presence: true
     validates :party, presence: true
 
@@ -27,4 +25,3 @@ class Voter < ActiveRecord::Base
       self.token ||= SecureRandom.uuid
     end
   end
-end

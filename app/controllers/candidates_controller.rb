@@ -11,12 +11,8 @@ class CandidatesController < ApplicationController
   # GET /candidates/1.json
   def show
     @candidate = Candidate.find(params[:id])
-
     render json: @candidate
   end
-
-  # POST /candidates
-  # POST /candidates.json
 
 
   private
